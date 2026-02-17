@@ -89,8 +89,7 @@ def show_menu():
     choose = input(" " * left_padding + Fore.YELLOW + Style.BRIGHT + "Select an option :  ")
     return choose
 
-def filetype():
-    file_name = input(Fore.YELLOW + Style.BRIGHT + "\nEnter file name: ")
+def filetype(file_name):
     try:
         file = subprocess.run(
             ["file", file_name],  
@@ -101,6 +100,7 @@ def filetype():
         print(Fore.GREEN + "\nResult:\n" + file.stdout)
     except FileNotFoundError:
         print(Fore.RED + "\n[file] command not found. Use Linux or install it.")
+
 
     file_result = file.stdout
     file_ret = file.returncode
@@ -123,6 +123,7 @@ def main():
 
         elif choose == "1":
             print(Fore.GREEN + "\n[+] File Type Detector selected\n")
+            filetype(file_name)
 
         elif choose == "2":
             print(Fore.GREEN + "\n[+] UPX Test selected\n")
