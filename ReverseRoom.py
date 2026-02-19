@@ -213,9 +213,9 @@ def UPXtest(file_name):
 
 
     if result.returncode == 0:
-        print(Fore.YELLOW + "\n[+] File appears to be packed with UPX.")
-        print("1 → Unpack file")
-        print("0 → Back to menu")
+        print(Fore.YELLOW + "\n[+] File appears to be packed with UPX.\n\n")
+        print(Fore.WHITE+ "[ " + Fore.GREEN + "1"+ Fore.WHITE +" ]"+ Fore.CYAN + " Unpack file")
+        print(Fore.WHITE+ "[ " + Fore.RED + "0"+ Fore.WHITE +" ]"+ Fore.CYAN + " Back to menu")
 
         choice = input("\nEnter choice: ")
 
