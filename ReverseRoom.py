@@ -115,18 +115,21 @@ def show_menu():
     print()
 
     menu_options = [
-        ("1", "File Type Detector"),
-        ("2", "UPX Test"),
-        ("3", "Entropy Scanner"),
-        ("4", "Import & API Viewer"),
-        ("5", "CTF Mode"),
-        ("6", "Anti-Debug Check"),
-        ("7", "Open Ghidra"),
-        ("0", "Exit")
+        ("01", "File Type Detector"),
+        ("02", "UPX Test"),
+        ("03", "Entropy Scanner"),
+        ("04", "Import & API Viewer"),
+        ("05", "CTF Mode"),
+        ("06", "Anti-Debug Check"),
+        ("07", "Open Ghidra"),
+        ("08", "Change Mode (chmod)"),
+        ("09", "Show Strings"),      
+        ("10", "Generate Analysis Report"),             
+        ("00", "Exit")
     ]
 
     for number, name in menu_options:
-        if number == "0":
+        if number == "00":
             number_color = Fore.RED + Style.BRIGHT
         else:
             number_color = Fore.GREEN + Style.BRIGHT
@@ -139,7 +142,7 @@ def show_menu():
         )
 
 
-        if number == "1":
+        if number == "01":
             right_line = (
                 Fore.WHITE + "[ " +
                 Fore.YELLOW + Style.BRIGHT + "X" +
@@ -186,12 +189,42 @@ def filetype(file_name):
     except FileNotFoundError:
         print(Fore.RED + "\n[file] command not found. Use Linux or install it.")
 
+def chmod(file_name):
+
+    chmod = subprocess.run(["chmod", "+x", file_name])
+
+
 def ghidra():
 
     openghidra = subprocess.run(["ghidra"])
 
+def strings(file_name):
+    try:
+        strings = subprocess.run(
+            ["strings", file_name],  
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True
+        )
+        print(Fore.GREEN + "\nResult:\n" + strings.stdout)
+    except FileNotFoundError:
+        print(Fore.RED + "\n[strings] command not found. Use Linux")
 
+def recommended(file_name):
+    
+    recommended = input(Fore.YELLOW + 'Do you want to try to find something ? (Y/N)')
 
+    if recommended == "Y".lower :
+        try:
+            strings = subprocess.run(
+                ["strings", file_name, "|", "grep", "UPX"],  
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True
+            )
+            print(Fore.GREEN + "\nResult:\n" + strings.stdout)
+        except FileNotFoundError:
+            print(Fore.RED + "\n[strings] command not found. Use Linux")
 
 
 
@@ -281,7 +314,20 @@ def main():
         elif choose == "7":
             print(Fore.GREEN + "\n[+] Open Ghidra slected\n")
             ghidra()
-            
+
+        elif choose == "8":
+            print(Fore.GREEN + "\n[+] Change Mode (chmod) selected\n")
+            chmod(file_name)
+
+        elif choose == "9":
+            print(Fore.GREEN + "\n[+] Show Strings selected\n") 
+            strings(file_name)
+            recommended(file_name)
+
+        elif choose == "10":
+            print(Fore.GREEN + "\n[+] Generate Analysis Report selected\n") 
+
+
         elif choose == "x":
             new_target = change_file()
             if new_target:
