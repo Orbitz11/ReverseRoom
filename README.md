@@ -1,4 +1,4 @@
-note: I haven't finished modifying the tool.
+note: Image of the readme file for the old version.
 # 🔍 ReverseRoom
 
 **A comprehensive binary analysis and reverse engineering toolkit for security researchers, malware analysts, and penetration testers.**
