@@ -133,7 +133,7 @@ def info():
     block = (
         Fore.CYAN + Style.BRIGHT + "[ INFO ]" + Style.RESET_ALL + "\n"
         + Fore.RED + "- Name     :                      " + Fore.YELLOW + "ReverseRoom\n"
-        + Fore.RED + "- Version  :                         " + Fore.YELLOW + "1.0\n"
+        + Fore.RED + "- Version  :                         " + Fore.YELLOW + "0.2\n"
         + Fore.RED + "- Author   :                      " + Fore.YELLOW + "Orbitz\n"
         + Fore.RED + "- GitHub   : " + Fore.YELLOW + "https://github.com/Orbitz11\n"
         + Fore.RED + "- Email    : " + Fore.YELLOW + "orbitz.business11@gmail.com\n"
