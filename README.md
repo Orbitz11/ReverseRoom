@@ -11,7 +11,7 @@ note: I haven't finished modifying the tool.
 
 ReverseRoom is a powerful command-line tool designed to streamline binary analysis workflows. Whether you're analyzing malware, performing security research, or participating in CTF competitions, ReverseRoom provides an intuitive interface to common reverse engineering tasks.
 
-**Current Version:** 0.1  
+**Current Version:** 0.2  
 **Language:** Python  
 **Status:** Active Development
 
